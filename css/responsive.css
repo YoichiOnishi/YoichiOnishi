@@ -64,8 +64,20 @@
         gap: 30px;
     }
 
+    .skill-bar {
+        padding: 15px;  /* パディングを小さく */
+    }
+
     .skill-arc {
-        height: 220px;
+        min-height: 180px;  /* 最小の高さを調整 */
+    }
+
+    .skill-name {
+        font-size: 1em;  /* フォントサイズを調整 */
+    }
+
+    .skill-percentage {
+        font-size: 1.2em;  /* フォントサイズを調整 */
     }
 
     .skill-arc svg {
@@ -117,7 +129,8 @@
 
     /* スキル円グラフの調整 */
     .skill-arc {
-        height: 180px;
+        height: 150px;
+        padding: 10px;
     }
 
     .skill-arc svg {
@@ -126,7 +139,7 @@
     }
 
     .skill-name {
-        font-size: 1em;
+        font-size: 0.9em;
     }
 
     .skill-percentage {
@@ -157,4 +170,5 @@
     .achievement-card {
         page-break-inside: avoid;
     }
+    
 }
