@@ -1,0 +1,160 @@
+/* css/responsive.css */
+
+/* タブレット以下のデバイス */
+@media (max-width: 968px) {
+    /* プロフィール部分の調整 */
+    .profile-left {
+        width: 250px;
+    }
+
+    .profile-image {
+        width: 250px;
+    }
+
+    /* セクションタイトルの調整 */
+    .section-title {
+        font-size: 2.2em;
+    }
+}
+
+/* タブレット用 */
+@media (max-width: 768px) {
+    /* 全体の余白調整 */
+    .content-wrapper {
+        padding: 0 20px;
+    }
+
+    /* セクション間隔の調整 */
+    section {
+        padding: 60px 0;
+    }
+
+    /* プロフィール部分のレイアウト変更 */
+    .profile-container {
+        flex-direction: column;
+    }
+
+    .profile-left {
+        width: 100%;
+        max-width: 250px;
+        margin: 0 auto;
+    }
+
+    .profile-image {
+        width: 100%;
+        margin-bottom: 40px;
+    }
+
+    /* タイムラインの調整 */
+    .timeline::before {
+        left: 20px;
+    }
+
+    .timeline-item {
+        margin-left: 40px;
+    }
+
+    .timeline-item::before {
+        left: -26px;
+    }
+
+    /* スキル表示の調整 */
+    .skills {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .skill-arc {
+        height: 220px;
+    }
+
+    .skill-arc svg {
+        width: 220px;
+        height: 220px;
+    }
+
+    /* 実績カードのレイアウト */
+    .achievements {
+        grid-template-columns: 1fr;
+    }
+
+    /* 動画セクションの調整 */
+    .videos {
+        grid-template-columns: 1fr;
+    }
+
+    /* プロフィール情報の調整 */
+    .profile-info {
+        margin-top: 15px;
+        padding: 10px;
+    }
+
+    .profile-info h3 {
+        font-size: 1.1em;
+    }
+
+    .profile-info p {
+        font-size: 0.85em;
+    }
+}
+
+/* スマートフォン用 */
+@media (max-width: 480px) {
+    /* 全体の余白をさらに調整 */
+    .content-wrapper {
+        padding: 0 15px;
+    }
+
+    /* セクションタイトルをさらに小さく */
+    .section-title {
+        font-size: 1.8em;
+    }
+
+    /* セクション間隔の調整 */
+    section {
+        padding: 40px 0;
+    }
+
+    /* スキル円グラフの調整 */
+    .skill-arc {
+        height: 180px;
+    }
+
+    .skill-arc svg {
+        width: 180px;
+        height: 180px;
+    }
+
+    .skill-name {
+        font-size: 1em;
+    }
+
+    .skill-percentage {
+        font-size: 1.2em;
+    }
+
+    /* 実績カードの内部余白調整 */
+    .achievement-card {
+        padding: 20px;
+    }
+
+    /* 掲載歴リストの高さ調整 */
+    .publication-list {
+        max-height: 250px;
+    }
+}
+
+/* 印刷用スタイル */
+@media print {
+    body::before {
+        display: none;
+    }
+
+    .video-container {
+        page-break-inside: avoid;
+    }
+
+    .achievement-card {
+        page-break-inside: avoid;
+    }
+}
