@@ -49,7 +49,7 @@
 .skill-arc {
     width: 100%;
     height: auto;
-    min-height: 180px;
+    min-height: 160px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -59,21 +59,20 @@
 .skill-arc svg {
     width: 100%;
     height: 100%;
-    max-width: 200px;
-    max-height: 200px;
+    max-width: 180px; /* 200pxから180pxに変更 */
+    max-height: 180px; /* 200pxから180pxに変更 */
 }
-
 /* 円グラフの背景 */
 .arc-bg {
     fill: none;
     stroke: rgba(255, 255, 255, 0.05);
-    stroke-width: 15;
+    stroke-width: 12;
 }
 
 /* 円グラフのプログレス */
 .arc-progress {
     fill: none;
-    stroke-width: 15;
+    stroke-width: 12;
     stroke-linecap: round;
     transition: all 1s ease;
 }
@@ -81,19 +80,21 @@
 /* スキル名のテキスト */
 .skill-name {
     fill: #ffffff;
-    font-size: 1em;
+    font-size: 0.95em; /* フォントサイズを少し小さく */
     font-weight: bold;
     opacity: 0.9;
-    text-anchor: middle; /* 追加: SVGテキストの水平中央揃え */
+    text-anchor: middle; /* SVGテキストの水平中央揃え */
+    dominant-baseline: central; /* SVGテキストの垂直中央揃え */
 }
 
 /* パーセンテージのテキスト */
 .skill-percentage {
     fill: #ffffff;
-    font-size: 1.2em;
+    font-size: 1.1em; /* フォントサイズを少し小さく */
     font-weight: bold;
     transition: fill 0.3s ease;
-    text-anchor: middle; /* 追加: SVGテキストの水平中央揃え */
+    text-anchor: middle; /* SVGテキストの水平中央揃え */
+    dominant-baseline: central; /* SVGテキストの垂直中央揃え */
 }
 
 /* グラデーション定義 */

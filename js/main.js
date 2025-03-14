@@ -2,9 +2,9 @@
 
 // ユーティリティ関数群
 function createArc(percentage) {
-    const width = 300;  
-    const height = 300;
-    const radius = 105;
+    const width = 250;
+    const height = 250;
+    const radius = 85;
     const centerX = width / 2;
     const centerY = height / 2;
     
@@ -35,9 +35,9 @@ function polarToCartesian(centerX, centerY, radius, angleInDegrees) {
 }
 
 function createFullCircle() {
-    const width = 300;  
-    const height = 300;
-    const radius = 105;
+    const width = 250; 
+    const height = 250;
+    const radius = 85;
     const centerX = width / 2;
     const centerY = height / 2;
     
@@ -56,8 +56,8 @@ const animationState = {
     initialized: false,
     categoriesAnimated: new Set()
 };
-// アニメーションと更新機能
 
+// アニメーションと更新機能
 function updateSkillArcs() {
     try {
         const skillBars = document.querySelectorAll('.skill-bar');
@@ -76,15 +76,17 @@ function updateSkillArcs() {
             const arcData = createArc(percentage);
             arcProgress.setAttribute('d', arcData.path);
             
-            // スキル名とパーセンテージのテキスト位置を中央に調整
+            // テキスト位置を中央に完全に合わせる
             if (skillName) {
                 skillName.setAttribute('x', '125');
-                skillName.setAttribute('y', '125');
+                skillName.setAttribute('y', '120'); // 値を調整
+                skillName.setAttribute('text-anchor', 'middle');
             }
             
             if (skillPercentage) {
                 skillPercentage.setAttribute('x', '125');
-                skillPercentage.setAttribute('y', '155');
+                skillPercentage.setAttribute('y', '150'); // 値を調整
+                skillPercentage.setAttribute('text-anchor', 'middle');
             }
             
             // パーセンテージに応じてグラデーションを設定

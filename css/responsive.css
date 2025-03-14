@@ -110,50 +110,24 @@
     }
 }
 
-/* スマートフォン用 */
 @media (max-width: 480px) {
-    /* 全体の余白をさらに調整 */
-    .content-wrapper {
-        padding: 0 15px;
-    }
-
-    /* セクションタイトルをさらに小さく */
-    .section-title {
-        font-size: 1.8em;
-    }
-
-    /* セクション間隔の調整 */
-    section {
-        padding: 40px 0;
-    }
-
     /* スキル円グラフの調整 */
     .skill-arc {
-        height: 150px;
-        padding: 10px;
+        min-height: 120px;
+        padding: 5px;
     }
 
     .skill-arc svg {
-        width: 180px;
-        height: 180px;
+        max-width: 140px; /* 120pxから140pxに変更 */
+        max-height: 140px; /* 120pxから140pxに変更 */
     }
 
     .skill-name {
-        font-size: 0.9em;
+        font-size: 0.8em;
     }
 
     .skill-percentage {
-        font-size: 1.2em;
-    }
-
-    /* 実績カードの内部余白調整 */
-    .achievement-card {
-        padding: 20px;
-    }
-
-    /* 掲載歴リストの高さ調整 */
-    .publication-list {
-        max-height: 250px;
+        font-size: 1em;
     }
 }
 
