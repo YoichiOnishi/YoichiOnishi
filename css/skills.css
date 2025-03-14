@@ -2,21 +2,42 @@
 
 /* スキルグリッド */
 .skills {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    display: flex;
+    flex-direction: column;
     gap: 40px;
     padding: 20px 0;
 }
 
-/* スキルバー */
-.skill-bar {
+/* カテゴリーコンテナ */
+.skill-category {
     background: linear-gradient(145deg, rgba(26, 26, 26, 0.8), rgba(42, 42, 42, 0.8));
     backdrop-filter: blur(5px);
     border-radius: 20px;
-    padding: 30px;
+    padding: 25px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* カテゴリータイトル */
+.category-title {
+    color: #ffffff;
+    font-size: 1.4em;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+/* スキル行（各カテゴリー内のスキルグループ） */
+.skill-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+/* 個別スキルバー */
+.skill-bar {
+    padding: 15px;
     position: relative;
     overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
     transition: transform 0.3s ease;
 }
 
@@ -27,19 +48,19 @@
 /* スキル円グラフ */
 .skill-arc {
     width: 100%;
-    height: auto;  /* 固定値から auto に変更 */
-    min-height: 200px;  /* 最小の高さを設定 */
+    height: auto;
+    min-height: 180px;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px;  /* 内側の余白を追加 */
+    padding: 10px;
 }
 
 .skill-arc svg {
-    width: 100%;  /* 親要素に対して100%に */
-    height: 100%;  /* 親要素に対して100%に */
-    max-width: 250px;  /* 最大幅を制限 */
-    max-height: 250px;  /* 最大高さを制限 */
+    width: 100%;
+    height: 100%;
+    max-width: 200px;
+    max-height: 200px;
 }
 
 /* 円グラフの背景 */
@@ -60,7 +81,7 @@
 /* スキル名のテキスト */
 .skill-name {
     fill: #ffffff;
-    font-size: 1.2em;
+    font-size: 1em;
     font-weight: bold;
     opacity: 0.9;
 }
@@ -68,7 +89,7 @@
 /* パーセンテージのテキスト */
 .skill-percentage {
     fill: #ffffff;
-    font-size: 1.4em;
+    font-size: 1.2em;
     font-weight: bold;
     transition: fill 0.3s ease;
 }
@@ -111,4 +132,71 @@
 
 .skill-bar:nth-child(3) {
     animation-delay: 0.4s;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+    .skill-category {
+        padding: 20px;
+    }
+
+    .skill-row {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 15px;
+    }
+
+    .skill-arc {
+        min-height: 150px;
+    }
+
+    .skill-arc svg {
+        max-width: 150px;
+        max-height: 150px;
+    }
+
+    .category-title {
+        font-size: 1.2em;
+    }
+
+    .skill-name {
+        font-size: 0.9em;
+    }
+
+    .skill-percentage {
+        font-size: 1.1em;
+    }
+}
+
+@media (max-width: 480px) {
+    .skill-category {
+        padding: 15px;
+    }
+
+    .skill-row {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: 10px;
+    }
+
+    .skill-arc {
+        min-height: 120px;
+        padding: 5px;
+    }
+
+    .skill-arc svg {
+        max-width: 120px;
+        max-height: 120px;
+    }
+
+    .category-title {
+        font-size: 1.1em;
+        margin-bottom: 15px;
+    }
+
+    .skill-name {
+        font-size: 0.8em;
+    }
+
+    .skill-percentage {
+        font-size: 1em;
+    }
 }
