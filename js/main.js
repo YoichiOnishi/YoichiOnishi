@@ -74,10 +74,19 @@ function updateSkillArcs() {
             const arcData = createArc(percentage);
             arcProgress.setAttribute('d', arcData.path);
             
-            const gradientId = arcProgress.getAttribute('data-gradient');
-            if (gradientId) {
-                arcProgress.style.stroke = `url(#${gradientId})`;
+            // パーセンテージに応じてグラデーションを設定
+            let gradientId;
+            if (percentage >= 90) {
+                gradientId = 'gradientHigh';
+            } else if (percentage >= 80) {
+                gradientId = 'gradientMedium';
+            } else if (percentage >= 70) {
+                gradientId = 'gradientRegular';
+            } else {
+                gradientId = 'gradientLow';
             }
+            
+            arcProgress.style.stroke = `url(#${gradientId})`;
         });
     } catch (error) {
         handleError(error, 'updateSkillArcs');
