@@ -2,9 +2,9 @@
 
 // ユーティリティ関数群
 function createArc(percentage) {
-    const width = 200;
-    const height = 200;
-    const radius = 70;
+    const width = 300;  
+    const height = 300;
+    const radius = 105;
     const centerX = width / 2;
     const centerY = height / 2;
     
@@ -35,9 +35,9 @@ function polarToCartesian(centerX, centerY, radius, angleInDegrees) {
 }
 
 function createFullCircle() {
-    const width = 200;
-    const height = 200;
-    const radius = 70;
+    const width = 300;  
+    const height = 300;
+    const radius = 105;
     const centerX = width / 2;
     const centerY = height / 2;
     
@@ -66,6 +66,8 @@ function updateSkillArcs() {
             const percentage = parseFloat(bar.querySelector('.skill-percentage').textContent);
             const arcBg = bar.querySelector('.arc-bg');
             const arcProgress = bar.querySelector('.arc-progress');
+            const skillName = bar.querySelector('.skill-name');
+            const skillPercentage = bar.querySelector('.skill-percentage');
             
             if (!arcBg || !arcProgress) return;
             
@@ -73,6 +75,17 @@ function updateSkillArcs() {
             
             const arcData = createArc(percentage);
             arcProgress.setAttribute('d', arcData.path);
+            
+            // テキスト位置を中央に調整
+            if (skillName) {
+                skillName.setAttribute('x', '125');
+                skillName.setAttribute('y', '125');
+            }
+            
+            if (skillPercentage) {
+                skillPercentage.setAttribute('x', '125');
+                skillPercentage.setAttribute('y', '155');
+            }
             
             // パーセンテージに応じてグラデーションを設定
             let gradientId;
