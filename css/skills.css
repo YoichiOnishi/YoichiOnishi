@@ -84,8 +84,7 @@
     font-size: 1em;
     font-weight: bold;
     opacity: 0.9;
-    text-anchor: middle; /* SVGテキストの水平中央揃え */
-    dominant-baseline: central; /* SVGテキストの垂直中央揃え */
+    text-anchor: middle; /* 追加: SVGテキストの水平中央揃え */
 }
 
 /* パーセンテージのテキスト */
@@ -94,9 +93,9 @@
     font-size: 1.2em;
     font-weight: bold;
     transition: fill 0.3s ease;
-    text-anchor: middle; /* SVGテキストの水平中央揃え */
-    dominant-baseline: central; /* SVGテキストの垂直中央揃え */
+    text-anchor: middle; /* 追加: SVGテキストの水平中央揃え */
 }
+
 /* グラデーション定義 */
 #skillGradient1 {
     --gradient-start: #ff3366;

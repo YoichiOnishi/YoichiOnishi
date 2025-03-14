@@ -76,7 +76,7 @@ function updateSkillArcs() {
             const arcData = createArc(percentage);
             arcProgress.setAttribute('d', arcData.path);
             
-            // テキスト位置を中央に調整
+            // スキル名とパーセンテージのテキスト位置を中央に調整
             if (skillName) {
                 skillName.setAttribute('x', '125');
                 skillName.setAttribute('y', '125');
