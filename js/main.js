@@ -151,6 +151,8 @@ function handleScroll() {
         const categories = document.querySelectorAll('.skill-category');
         const timelineItems = document.querySelectorAll('.timeline-item');
         const achievementCards = document.querySelectorAll('.achievement-card');
+        const videoContainers = document.querySelectorAll('.video-container');
+        const galleryItems = document.querySelectorAll('.gallery-item');
         
         const screenPosition = window.innerHeight / 1.3;
 
@@ -175,6 +177,20 @@ function handleScroll() {
                 card.classList.add('visible');
             }
         });
+        
+        videoContainers.forEach(container => {
+            const position = container.getBoundingClientRect().top;
+            if (position < screenPosition) {
+                container.classList.add('visible');
+            }
+        });
+        
+        galleryItems.forEach(item => {
+            const position = item.getBoundingClientRect().top;
+            if (position < screenPosition) {
+                item.classList.add('visible');
+            }
+        });
     } catch (error) {
         handleError(error, 'handleScroll');
     }
@@ -195,7 +211,6 @@ function initializeSkills() {
         handleError(error, 'initializeSkills');
     }
 }
-// イベントリスナーとObserver設定
 
 // Intersection Observer の設定
 const observerOptions = {
@@ -263,31 +278,56 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 100);
         
         // Intersection Observer の設定
-        document.querySelectorAll('.skill-category, .timeline-item, .achievement-card')
+        document.querySelectorAll('.skill-category, .timeline-item, .achievement-card, .video-container, .gallery-item, .reveal-element')
             .forEach(element => {
                 observer.observe(element);
             });
-            
-        // プロフィール画像のホバーエフェクト
-        const profileImage = document.querySelector('.profile-image');
-        if (profileImage) {
-            profileImage.addEventListener('mouseover', function() {
-                this.style.transform = 'scale(1.02)';
-            });
-            
-            profileImage.addEventListener('mouseout', function() {
-                this.style.transform = 'scale(1)';
-            });
-        }
         
-        // 外部リンクの処理
-        document.querySelectorAll('a[target="_blank"]').forEach(link => {
+        // スムーススクロールの設定
+        document.querySelectorAll('a[data-scroll]').forEach(link => {
             link.addEventListener('click', function(e) {
-                // Google Analytics トラッキングなどをここに追加可能
-                console.log('External link clicked:', this.href);
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                
+                if (targetSection) {
+                    window.scrollTo({
+                        top: targetSection.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                }
             });
         });
         
+        // バックトゥトップボタン
+        const backToTopBtn = document.getElementById('back-to-top');
+        if (backToTopBtn) {
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 500) {
+                    backToTopBtn.classList.add('visible');
+                } else {
+                    backToTopBtn.classList.remove('visible');
+                }
+            });
+            
+            backToTopBtn.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        }
+        
+        // 3Dチルト効果
+        if (typeof VanillaTilt !== 'undefined') {
+            VanillaTilt.init(document.querySelectorAll("[data-tilt]"), {
+                max: 10,
+                speed: 400,
+                glare: true,
+                "max-glare": 0.3
+            });
+        }
+            
     } catch (error) {
         handleError(error, 'DOMContentLoaded');
     }
